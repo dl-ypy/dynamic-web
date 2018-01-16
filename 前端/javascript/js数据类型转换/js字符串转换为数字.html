@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>JavaScript字符串转换为数字</title>
+	</head>
+	<body>
+		<script>
+			document.write(parseInt("3 ppp")+"<br />");
+			document.write(parseInt("22.9")+"<br />");//不会四舍五入
+			document.write(parseInt("0XFF")+"<br />");
+			document.write(parseFloat(".1")+"<br />");
+			document.write(parseInt(".1")+"<br />");//=>NaN:整数不能以"."开始
+			document.write(parseFloat("$223.3")+"<br />");
+			document.write(parseInt("11", 2)+"<br />");//第二个参数表示数字转换的基数，这里表示二进制
+		</script>
+	</body>
+</html>

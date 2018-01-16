@@ -1,0 +1,30 @@
+div {
+	width:100px;
+	height:100px;
+	background:yellow;
+}
+
+#div1 {
+	transform:translate(100px, 100px);           /*使得x和Y坐标移动100px*/
+	-webkit-transform:translate(100px, 100px);   /*支持的浏览器*/
+}
+
+#div2 {
+	transform:rotate(200deg);                    /*顺时针旋转200度*/
+	-webkit-transform:rotate(200deg);
+}
+
+#div3 {
+	transform:scale(1, 2);                      /*缩放宽度1倍，高度2倍*/
+	-webkit-transform:scale(1, 2);
+}
+
+#div4 {
+	transform:skew(20deg, 20deg);               /*x,y轴都倾斜20度*/
+	-webkit-transform:skew(20deg, 20deg);
+}
+
+#div5 {
+	transform:rotateX(120deg);                  /*压缩120度*/
+	-webkit-transform:rotateX(120deg);
+}

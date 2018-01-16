@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+    <book isdn="0001">
+        <author>Wang</author>
+        <name>AJAX Professional</name>
+        <price>35</price>
+    </book>
+    <book isdn="0002">
+        <author>Lee</author>
+        <name>AJAX In Action</name>
+        <price>65</price>
+    </book>
+    <book>
+        <author>Zhu</author>
+        <name>AJAX For Dummies</name>
+        <price>40</price>
+    </book>
+    <author>AAA</author>
+</books>

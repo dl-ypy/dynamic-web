@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.configuration.xml.reload" value="true"></constant>  <!-- 修改xml文件后自动重启 -->
+	<package name="user" extends="struts-default" namespace="/user">
+		<action name="user_save" class="com.ypy.struts2.controller.UserController" method="save">
+			<result name="success">/index.jsp</result>
+		</action>
+		
+		<action name="user_query" class="com.ypy.struts2.controller.UserController" method="query">
+			<result name="success">/index.jsp</result>
+		</action>
+	</package>
+	<include file="struts-order.xml"></include>   <!-- 导入其他xml文件 -->
+</struts>

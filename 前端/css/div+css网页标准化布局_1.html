@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>div+css网页标准化布局</title>
+		<style>
+			#main {
+				width:300px;
+				height:200px;
+				background-color:yellow;
+				position:absolute;					/*位置固定，绝对定位，大小不会随着浏览器的大小变化*/
+				left:50%;
+				top:50%;
+				margin-left:-150px;					/*左外边距*/
+				margin-top:-100px;					/*上外边距*/
+			}
+			
+			a:hover{      /*鼠标放上去的变化*/
+				position:relative;     /*相对定位，相对于鼠标放上去之前*/
+				top:1px;
+				left:1px;
+			}
+			
+			#left{
+				position:absolute;					/*绝对定位才会出现覆盖的情况*/
+				width:200px;
+				height:200px;
+				left:15px;
+				top:50px;
+				background-color:green;
+				z-index:-1;									/*只有区域块才设置，数值越小，就在下面*/
+			}
+			
+			#right{
+				width:100px;
+				height:100px;
+				background-color:red;
+				display:none;            /*此时该区域块就不会显示，隐藏后位置也没了，后面的内容会补上，网页中点击一下就隐藏的功能就是运用这种方法*/
+			}
+			
+			#center{
+				width:50px;
+				height:50px;
+				background-color:pink;
+				overflow:hidden;            /*多于这个区域块的部分就被隐藏*/
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="main">
+			aaaaaa
+		</div>
+		
+		<a href="#">aaaaaaaaaaaaaaaa</a><br/>
+		<a href="#">aaaaaaaaaaaaaaaa</a><br/>
+		<a href="#">aaaaaaaaaaaaaaaa</a><br/>
+		<a href="#">aaaaaaaaaaaaaaaa</a><br/>
+		<a href="#">aaaaaaaaaaaaaaaa</a>
+		
+		<div id="left">
+			
+		</div>
+		
+		<div id="right">
+			
+		</div>
+		
+		<div id="center">
+			<a href="#">aaaaaaaaaaaaaaaa</a><br/>
+		<a href="#">aaaaaaaaaaaaaaaa</a><br/>
+		<a href="#">aaaaaaaaaaaaaaaa</a><br/>
+		<a href="#">aaaaaaaaaaaaaaaa</a><br/>
+		<a href="#">aaaaaaaaaaaaaaaa</a>
+		</div>
+	</body>
+</html>

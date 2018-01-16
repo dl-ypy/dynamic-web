@@ -1,0 +1,12 @@
+eclipse中配置jstl(myeclipse中不需要配置，只需要在创建项目时勾选就行)
+1.创建项目时要勾选web.xml
+2.首先下载jstl.jar和standar.jar，复制到WEB-INF下的lib中
+3.在web.xml中加入
+  <jsp-config>
+  <taglib>
+  <taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+  <taglib-location>/WEB-INF/c.tld</taglib-location>
+  </taglib>
+  </jsp-config>
+4.在jsp页面进行调用:
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>

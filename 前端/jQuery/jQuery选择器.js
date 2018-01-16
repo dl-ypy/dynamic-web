@@ -1,0 +1,11 @@
+$(document).ready(function(){
+	$("#btn1").click(function(){//当btn1按钮被点击时触发事件
+		$("p").text("通过元素修改了");
+	});
+	$("#btn2").click(function(){//当btn1按钮被点击时触发事件
+		$("#pid").text("通过id修改了");
+	});
+	$("#btn3").click(function(){
+		$(".pclass").text("通过class修改了");
+	});
+});

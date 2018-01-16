@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ypy.hibernate.model">
+	<class name="Student"><!-- 因为这里表名与类名相同，所以不再写table="Student" -->
+		<!-- <id name="id" type="java.lang.Integer">
+		    <generator class="native"></generator>  自动生成ID
+		</id> --><!-- 主键 -->
+		<composite-id name="pk" class="com.ypy.hibernate.model.StudentPK">
+		    <key-property name="id"></key-property>
+		    <key-property name="name"></key-property>
+		</composite-id>
+		
+		<!-- 其他属性 -->
+		<!-- <property name="name" type="java.lang.String"/> -->
+		<property name="age" type="java.lang.Integer"/>
+    </class>
+	
+</hibernate-mapping>

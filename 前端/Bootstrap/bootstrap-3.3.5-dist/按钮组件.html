@@ -1,0 +1,31 @@
+<html>
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<title>按钮组件</title>
+		<!--1.加载bootstrap层叠样式表-->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<button type="button" class="btn btn-default">按钮</button>  <!--按钮,   lg（大）  sm（中）  xs（小）  表示大小-->
+		<button type="button" class="btn btn-primary btn-lg">按钮</button>
+		<button type="button" class="btn btn-info">信息</button>
+		<button type="button" class="btn btn-success btn-sm">确定</button>
+		<button type="button" class="btn btn-warning btn-xs">提示</button>
+		<button type="button" class="btn btn-danger">取消</button>
+		<button type="button" class="btn btn-link">链接</button>
+
+		<a class="btn btn-default" href="#" role="button">链接</a>  <!--将超链接渲染成按钮-->
+		<input class="btn btn-success" type="submit" value="input"> <!--input也可以渲染，但部分浏览器不支持-->
+
+		<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-expand"></span>&nbsp;&nbsp;按钮</button>   <!--按钮前加图标-->
+
+		<!--2.加载jQuery库，必须在加载/bootstrap.min.js之前-->
+		<script src="http://cdn.bootcss.com/jquery.min.js"></script>
+		<!--加载bootstrap的核心js库-->
+		<script src="js/bootstrap.min.js"></script>
+	</body>
+</html>
+
+

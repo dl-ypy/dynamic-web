@@ -1,0 +1,21 @@
+<html>
+        <head>
+	        <title>关联样式选择器</title>
+		<style>
+                        div #one .two p {
+				color:red;
+				font-size:2cm;
+			}
+                </style>
+	</head>
+
+	<body>
+	        <div>
+	                <div id="one"><!--必须是div标签，而且根据上面的顺序必须是div下的 div one id  下的 div two类中的p    如果上面是  div  p  也能实现，只要能保持关联关系就可以,而且上面#one和.two之间必须有空格-->
+			        <div class="two">
+				        <p>aaaaaaaaaa</p>
+			        </div>
+		        </div>
+		</div>
+	</body>
+</html>

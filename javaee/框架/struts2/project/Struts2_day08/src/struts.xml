@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.configuration.xml.reload" value="true"></constant>  <!-- 修改xml文件后自动重启 -->
+	<constant name="struts.custom.i18n.resources" value="zbmessage"></constant>   <!-- 配置i18n国际化 -->
+	<package name="change" extends="struts-default" namespace="/" strict-method-invocation="false">
+		<action name="change" class="com.ypy.action.I18nAction" method="change">
+			<result name="success">/index.jsp</result>
+		</action>
+	</package>
+</struts>

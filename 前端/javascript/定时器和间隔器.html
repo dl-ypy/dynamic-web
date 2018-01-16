@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p id="time1"></p>
+		<p id="time2"></p>
+		
+		<script>
+			var v1 = document.getElementById('time1');
+			var run1 = function () {
+				var time1 = new Date();
+				v1.innerHTML = time1.toLocaleTimeString();
+			}
+			setInterval('run1()', 1000);/*表示每隔一秒执行一次*/
+			
+			var v2 = document.getElementById('time2');
+			var run2 = function () {
+				var time2 = new Date();
+				v2.innerHTML = time2.toLocaleTimeString();
+				setTimeout('run2()', 1000);
+			}
+			setTimeout('run2()', 1000);/*表示一秒后执行*/
+		</script>
+	</body>
+</html>

@@ -1,0 +1,158 @@
+body{
+	margin:0px;       				/*外边距为0,能使div布局铺满页面*/
+	padding:0px;      				/*内边距为0*/
+	font:12px Arial,宋体;     /*字体*/
+	text-align:center;				/*使得body体中的文本都居中，这种能使得在IE浏览器中也居中*/
+}
+
+#container{                 /*整体放入一个容器*/
+	margin-left:auto;
+	margin-right:auto;				/*左右外边距都自动，就会居中，但IE浏览器不会*/
+	width:1000px;
+	text-align:left;          /*因为上面使得body中的文本都居中了，这里要使得容器中的文本在靠左*/
+}
+
+#header{
+	width:100%;
+	height:80px;              /*tem*/
+}
+
+#header #logo{              /*标志*/
+	float:left;
+	margin-right:10px;        /*因为三块区域间要留10px的空隙*/
+	width:200px;
+	height:80px;
+	background:#ff00ff;
+}
+
+#header #banner{            /*广告位*/
+	float:left;
+	width:600px;
+	height:80px;
+	background:blue;
+}
+
+#header #tool{              /*工具*/
+	float:right;
+	width:180px;
+	height:80px;
+	background:#a12bbf;
+}
+
+#header #menu{
+	float:left;
+	width:100%;
+	height:28px;
+	background:#aaa;
+}
+
+ul{            /*列表一般都用这三个样式*/
+	margin:0px;
+	padding:0px;
+	list-style:none;           /*没样式，去掉前面的标号*/
+}
+
+#header #menu li{
+	float:left;
+	height:28px;
+	line-height:28px;         /*行高等于了区域高度就能居中，因为文字默认是在行的中间的*/
+	width:165px;
+	text-align:center;        /*列表中的文本居中*/
+}
+
+#header #menu .tiao{
+	width:1px;
+	height:12px;
+	background:#000;
+	margin-top:8px;
+}
+
+#main{
+	width:100%;
+}
+
+#main #leftbox{
+	float:left;
+	width:750px;
+}
+
+#main #rightbox{
+	float:right;
+	width:240px;
+	height:600px;
+	background:red;
+}
+
+#main #leftbox .left{
+	float:left;
+	width:300px;
+	height:295px;
+	background:yellow;
+}
+
+#main #leftbox .right{
+	float:right;
+	width:440px;
+	height:295px;
+	background:yellow;
+}
+
+.tit{
+	float:left;
+	width:100%;
+	height:26px;
+	background:url(../images/title.png) no-repeat right;
+}
+
+.tit h3{
+	margin:0px;
+	padding:0px;
+	padding-left:10px;
+	width:100px;
+	line-height:26px;
+	font-size:14px;
+	background:url(../images/title.png) no-repeat left;     /*在tlt中显示图片的右边圆角，在h3中显示左边的圆角，其实是两个图片重叠起来的*/
+}
+
+#main .content{
+	float:left;
+	width:298px !important;            /*因为边框的宽度为2px，IE能够自动显示到300px,而其他浏览器不行，只能是298px*/
+	width:300px;                       /*当同时有两个相同属性时，其他浏览器会识别加!important的，而IE则不识别，它会识别另一个不加!important的*/
+	height:269px;
+	border:1px solid black;
+	padding-left:0px;
+	text-align:left;
+}
+
+.content li{
+	width:100%;
+	line-height:25px;
+	background:url(../images/dot.gif) repeat-x bottom;    /*水平重复   位于底部*/
+	text-align:left;
+}
+
+.content li a{
+	text-decoration:none;         /*去掉超链接的下划线*/
+	background:url(../images/li_icon.gif) no-repeat 0 center;
+	padding-left:15px;
+}
+
+a:hover{                        /*超连接鼠标放上去的变化*/
+	position:relative;
+	top:1px;
+	left:1px;
+	color:red;
+}
+
+#footer{
+	width:100%;
+	height:80px;
+	background-color:blue;
+}
+
+.nav{
+	width:100%;
+	height:10px;
+	clear:both;
+	overflow:hidden;          /*因为IE中最小的像素是18px，10px显示出来就是18px,所以要将超出的部分隐藏掉*/
+}

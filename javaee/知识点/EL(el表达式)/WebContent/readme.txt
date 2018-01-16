@@ -1,0 +1,1 @@
+EL（Expression Language） 目的:为了使JSP写起来更加简单。

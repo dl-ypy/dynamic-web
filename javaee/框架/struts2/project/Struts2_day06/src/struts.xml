@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<package name="user" extends="struts-default" namespace="/user" strict-method-invocation="false"> <!-- strict-method-invocation防止通配符配置方法时出错 -->
+		<action name="user_*" class="com.ypy.action.UserAction" method="{1}">
+			<result name="success">/user.jsp</result>
+			<result name="query" type="redirectAction">user_query</result>   <!-- 重定向后作用域中的数据就没了 -->
+			<result name="update">/user_update.jsp</result>
+			<result name="input">/user.jsp</result>
+		</action>
+	</package>
+</struts>

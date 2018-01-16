@@ -1,0 +1,14 @@
+$(document).ready(function(){
+	$("#btn").click(function(){
+		alert("文本："+$("#pid").text());
+	});
+	$("#btn1").click(function(){
+		alert("文本："+$("#pid1").html());//通过html能获取到标签
+	});
+	$("#btn2").click(function(){
+		alert("文本："+$("#it").val());//获得文本框内容
+	});
+	$("#btn3").click(function(){
+		alert("超链接："+$("#aid").attr("href"));
+	});
+});

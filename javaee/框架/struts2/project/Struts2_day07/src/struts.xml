@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.configuration.xml.reload" value="true"></constant>  <!-- 修改xml文件后自动重启 -->
+	<package name="user" extends="struts-default" namespace="/user" strict-method-invocation="false">
+		<interceptors>
+			<interceptor name="userIntercprt" class="com.ypy.unterceptor.UserInterceptor">
+				<param name="interName">拦截器1</param>    <!-- 配置拦截器的名字，name为拦截器文件中定义的属性 -->
+			</interceptor>
+			<interceptor name="userIntercprt2" class="com.ypy.unterceptor.UserInterceptor">
+				<param name="interName">拦截器2</param>
+			</interceptor>
+			<interceptor name="userIntercprt3" class="com.ypy.unterceptor.UserInterceptor">
+				<param name="interName">拦截器3</param>
+			</interceptor>
+			<!-- <interceptor-stack name="myInterceptor">   拦截器栈
+				<interceptor-ref name="userIntercprt"></interceptor-ref>   自定义拦截器后，默认的拦截就不存在了
+				<interceptor-ref name="defaultStack"></interceptor-ref>     需要自己引用默认的拦截器，有点像构造方法
+			</interceptor-stack> -->
+		</interceptors>
+		
+		<!-- <default-interceptor-ref name="myInterceptor"></default-interceptor-ref> -->   <!-- 全局的拦截器，适用于所有action都需要拦截的情况 -->
+		
+		<action name="user_query" class="com.ypy.struts2.action.UserAction" method="query">
+			<interceptor-ref name="userIntercprt"></interceptor-ref>    <!-- 若没有定义全局的拦截器，可通过此方法调用拦截器栈中的拦截器 -->
+			<interceptor-ref name="userIntercprt2"></interceptor-ref>    
+			<interceptor-ref name="userIntercprt3"></interceptor-ref>    
+			<result name="success">/index.jsp</result>
+		</action>
+		<action name="user_save" class="com.ypy.struts2.action.UserAction" method="save">
+			<!-- <interceptor-ref name="myInterceptor"></interceptor-ref> -->    <!-- 若没有定义全局的拦截器，可通过此方法调用拦截器栈中的拦截器 -->
+			<result name="success">/index.jsp</result>
+		</action>
+	</package>
+</struts>

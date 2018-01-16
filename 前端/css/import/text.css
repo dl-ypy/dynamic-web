@@ -1,0 +1,6 @@
+p {
+	text-align:center;
+}
+
+@import url(one.css);/*导入,要加分号*/
+@import url(two.css);

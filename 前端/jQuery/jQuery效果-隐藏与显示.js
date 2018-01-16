@@ -1,0 +1,11 @@
+$(document).ready(function(){
+	$("#hide").click(function(){
+		$("p").hide(1000);//1秒后隐藏
+	});
+	$("#show").click(function(){
+		$("p").show(1000);//1秒后显示
+	});
+	$("#two").click(function(){
+		$("a").toggle(1000);//使得隐藏和显示为同一个按钮
+	});
+});

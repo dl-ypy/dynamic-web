@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+       Copyright 2009-2016 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 用接口中的包名.接口名做namespace -->
+<mapper namespace="com.ypy.interf.IMessage">
+
+  <!-- type中是实体类的路径 -->
+  <resultMap type="com.ypy.bean.Message" id="UserResult">
+      
+    <!-- 主键用id column是查询到的数据库中字段的名称（注：和数据库中的字段名不一定相同，可能起别名），jdbcType是字段的类型，property是实体类中属性的名称-->
+    <id column="ID" jdbcType="INTEGER" property="id"/>
+    <!-- 下面是其他属性的配置 -->
+    <result column="COMMAND" jdbcType="VARCHAR" property="command"/>
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
+    <result column="CONTENT" jdbcType="VARCHAR" property="content"/>
+  </resultMap>
+  
+	<!--查询方法   parameterType表示参数的类型，只能传一个参数 -->
+  <select id="selectMessage" parameterType="com.ypy.bean.Message" resultMap="UserResult">
+    select ID,COMMAND,DESCRIPTION,CONTENT from micro_message where 1=1
+    
+   <!--  动态拼接sql语句
+    test里面的判断条件相当于java语句：if(command!=null && !" ".equals(description.trim()))  and是ognl表达式 -->
+    <if test="command!=null and !&quot;&quot;.equals(command.trim())">
+        and COMMAND=#{command}
+    </if>
+  </select>
+  
+  <!-- 分页查询 -->
+  <select id="selectMessageByPage" parameterType="java.util.Map" resultMap="UserResult">
+    select ID,COMMAND,DESCRIPTION,CONTENT from micro_message where 1=1
+    
+    <if test="message.command!=null and !&quot;&quot;.equals(message.command.trim())">
+        and COMMAND=#{message.command}
+    </if>
+    order by ID
+  </select>
+  
+  <!-- 单条删除 -->
+  <delete id="deleteOne" parameterType="int">
+      delete from micro_message where ID = #{_parameter}
+  </delete>
+
+  <!-- 批量删除 -->
+  <delete id="deleteBatch" parameterType="java.util.List">
+      delete from micro_message where ID in (
+                                               <!-- 表示用,分割 -->
+      	<foreach collection="list" item="item" separator=",">
+      	    #{item}
+      	</foreach>
+      )
+  </delete>
+  
+  <!-- 批量新增 -->
+  <insert id="insertBatch" parameterType="java.util.List">
+      insert into micro_message (COMMAND,DESCRIPTION,CONTENT) values
+      <foreach collection="list" item="item" separator=",">
+            <!-- 属性名 -->
+          (#{item.command},#{item.description},#{item.content})
+      </foreach>
+  </insert>
+</mapper>

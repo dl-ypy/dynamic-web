@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var reg = new RegExp('e');/*判断是否有e*/
+			console.log(reg.test('test'));
+			reg = new RegExp('^e');/*判断是否以e开头*/
+			console.log(reg.test('est'));
+			reg = new RegExp('e$');/*判断是否以e结尾*/
+			console.log(reg.test('abe'));
+			reg = new RegExp('^abc$');/*判断是否以abc开头和结尾，本例中     默认只有3个字符，可用于限定字符串长度*/
+			console.log(reg.test('abc'));
+			var reg = new RegExp('e+');/*判断至少有一个e*/
+			console.log(reg.test('teseet'));
+			var reg = new RegExp('ac{2,5}$');/*判断是否以一个a加上2-5个c结尾*/
+			console.log(reg.test('acc'));
+			/*.可代替任意字符*/
+			var reg = new RegExp('.{3}');/*可用来判断长度*/
+			/*[]起或者的作用*/
+			var reg = new RegExp('[a-zA-Z]');/*判断字母*/
+			var reg = new RegExp('^[a-zA-Z]');/*判断不是字母*/
+			var reg = new RegExp('\\.');/*判断.*/
+			
+			/*简写形式*/
+			var reg = /'\./;/*简写时只用一个\作为转义字符,因为没有引号*/
+		</script>
+	</body>
+</html>

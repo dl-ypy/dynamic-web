@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>js内置对象_Array</title>
+	</head>
+	
+	<body>
+		<script>
+			var a = ["asp","jsp"];
+			var b = ["php","c"];
+			var c = a.concat(b);//数组组合
+			document.write("a和b组合后为："+c+"<br>");
+			
+			var m = ["9","5","8","2","3"];
+			var n = m.sort(function(a,b){return b-a;});//降序排序,a-b就为升序排序
+			document.write("降序排序为："+n+"<br>");
+			var n = ["n","a","h","c","z"];
+			document.write("将字母按顺序排列："+n.sort()+"<br>");
+			m.push("de");
+			document.write("m追加元素后为："+m+"<br>");
+			a = a.reverse();//将a中的元素翻转过来
+			document.write("将a中元素翻转过来后为："+a);
+		</script>	
+	</body>
+</html>

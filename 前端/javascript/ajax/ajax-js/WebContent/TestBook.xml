@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+    <book>
+        <author>
+            Peter
+        </author>
+        <name>
+            Hello AJAX
+        </name>
+    </book>
+    <book>
+        <author>
+            Jack
+        </author>
+        <name>
+            AJAX Puzzle
+        </name>
+    </book>
+</books>

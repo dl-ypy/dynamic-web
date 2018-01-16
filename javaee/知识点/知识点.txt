@@ -1,0 +1,2 @@
+1.用forward的跳转方式能够访问WEB-INF目录下的文件。
+2.Servlet中用PrintWriter out = response.getWriter();  out.println()输出到页面。

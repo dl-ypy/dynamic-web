@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>联动下拉框</title>
+	</head>
+	<body>
+		<form>
+			<select id="province" onchange="changeCity(this.value)">
+				<option value="0">------请选择省份------</option>
+				<option value="1">广东</option>
+				<option value="2">浙江</option>
+				<option value="3">四川</option>
+				<option value="4">山西</option>
+			</select>
+			
+			<select id="city">
+				<option>------请选择城市------</option>
+			</select>
+		</form>
+		<script>
+			var arrayCity = [
+				["------请选择城市------"],
+				["广州","深圳","珠海","东莞"],
+				["温州","宁波","杭州","台州"],
+				["成都","广元","绵阳","攀枝花"],
+				["太原","大同","朔州","吕梁"]
+			];
+			
+			function $(id) {
+				return document.getElementById(id);
+			}
+			
+			function changeCity(value) {
+				var cities = arrayCity[value];
+				var city = $('city');
+				city.length = 1;/*初始化下拉框,防止原来选过的重复出现*/
+				for (var i=0; i<cities.length; i++) {
+					var opt = document.createElement('option');
+					opt.innerHTML=cities[i];
+					city.appendChild(opt);
+				}
+			}
+		</script>
+	</body>
+</html>

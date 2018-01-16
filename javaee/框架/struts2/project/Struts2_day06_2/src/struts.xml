@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.configuration.xml.reload" value="true"></constant>  <!-- 修改xml文件后自动重启 -->
+	<package name="dept" extends="struts-default" namespace="/dept" strict-method-invocation="false">
+		<action name="*_*" class="com.ypy.struts2.action.{1}Action" method="{2}">
+			<result name="success">/tag03.jsp</result>
+		</action>
+	</package>
+</struts>

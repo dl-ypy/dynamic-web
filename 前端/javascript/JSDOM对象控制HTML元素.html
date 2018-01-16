@@ -1,0 +1,102 @@
+<html>
+	<head>
+		<title>JSDOM对象控制HTML元素</title>
+	</head>
+	
+	<body>
+		<div id="div">
+			<p name="pn" id="pid">aaa</p>
+			<p name="pn">bbb</p>
+			<p name="pn">ccc</p>
+			<a id="aid2" href="#">要删除的</a>
+		</div>
+	<a id="aid" title="得到了a标签属性" href="#">hello</a><br/>
+	<a id="aid1" href="#">动态设置标签属性</a><br/>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+	<hr/>	
+	
+		<script>
+			function getName()//得到标签名字
+			{
+				var count = document.getElementsByName("pn");  //得到标签的名字     getElementsByTagName():得到元素本身，用法与getElementsByName()相同
+				document.write(count.length+"<br>");//能够得到它的长度，所以说明是以数组的形式存在
+				var p = count[1];
+				p.innerHTML = "内容修改了";
+			}
+			getName();
+			
+			function getAttr()//得到标签属性
+			{
+				var anode = document.getElementById("aid");//先得到id
+				var attr = anode.getAttribute("title");//得到对应的属性
+				document.write(attr+"<br>");
+			}
+			getAttr();
+			
+			function setAttr()//动态设置标签属性
+			{
+				var anode = document.getElementById("aid1");
+				anode.setAttribute("title","动态设置a标签属性");//参数名为属性名 和 属性值
+				var attr = anode.getAttribute("title");
+				document.write(attr+"<br>");
+			}
+			setAttr();
+			
+			function getChildNode() //获得子结点
+			{
+				var chilenode = document.getElementsByTagName("ul")[0].childNodes;
+				document.write(chilenode.length+"<br>");//输出是7，因为有浏览器的兼容问题，列表中的空白项也算作元素
+				document.write(chilenode[0].nodeName+"<br>");
+			}
+			getChildNode();
+			
+			function getParentNode()//获得父结点
+			{
+				var div = document.getElementById("pid");
+				document.write(div.parentNode.nodeName+"<br>");//输出为DIV
+			}
+			getParentNode();
+			
+			function createNode()//创建元素节点
+			{
+				var body = document.body;//获得body
+				var input = document.createElement("input");//参数是结点类型
+				input.type = "button";//结点的类型
+				input.value = "按钮";//结点的value
+				body.appendChild(input);//将结点添加到body中
+			}
+			createNode();
+			document.write("<br>");
+			
+			function addNode()//添加结点
+			{
+				var div = document.getElementById("div");//要在div中添加
+				var node = document.getElementById("pid");//要在这个p标签前面添加
+				var newnode = document.createElement("p");
+				newnode.innerHTML = "动态添加一个p元素";
+				div.insertBefore(newnode,node);//将新的元素放在node前面
+			}
+			addNode();
+			
+			function removeNode()//删除结点
+			{
+				var div = document.getElementById("aid2");
+				div.removeChild(div.childNodes[0]);//删除第一个
+			}
+			removeNode();
+			
+			function getSize()//得到网页尺寸    用scrollWidth是包含滚动条的
+			{
+				var width = document.body.offsetWidth||document.documentElement.offsetWidth;//得到宽度   解决浏览器的兼容问题
+				var height = document.body.offsetHeight||document.documentElement.offsetHeight;//得到高度
+				document.write("宽度为："+width+",高度为："+height);
+			}
+			getSize();
+			
+		</script>
+	</body>
+</html>

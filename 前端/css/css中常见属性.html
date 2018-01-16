@@ -1,0 +1,123 @@
+<html>
+	<head>
+		<title>css中常见的属性</title>
+		<style>
+			h1{
+				font-family:times,courier; /*字体族科，两类，第一类没有就选第二类*/
+				font-size:150%;						 /*字体大小*/
+				font-style:italic;         /*字体风格*/
+				font-variant:normal;       /*字体加粗*/
+				font-weight:normal;				 /*字体变形*/
+				color:blue;								 /*字体颜色*/
+				letter-spacing:-3px;			 /*字符间距*/
+				text-align:center;				 /*文本位置*/
+				text-decoration:overline;  /*文本修饰*/
+				text-transform:lowercase;  /*控制文本大小写*/
+				cursor:wait;							 /*鼠标放上去时的样式*/
+			}
+			
+			h2{
+				font-family:serif,times;
+				font-size:2cm;
+				font-style:normal;
+				font-variant:small-caps;
+				font-weight:900;
+			}
+			
+			p{
+				font-family:sans-serif;
+				font-size:14px;
+				font-style:oblique;
+				font-weight:bold;
+				text-indent:1cm;     /*缩进*/
+			}
+			
+			h3{
+				font:italic bold 20px courier,serif;/*根据后面的值找出对应的属性，尽量按顺序写*/
+			}
+			
+			body{
+				background-color:yellow;       /*背景颜色*/
+				background-image:url(1.jpg);   /*背景图片*/
+				background-repeat:repeat-x;    /*图片重复格式，水平重复*/
+				background-position:bottom;    /*设置背景图片位置，靠低端，也可设置坐标像素，如：100px 200px*/
+				background-attachment:fixed;   /*背景附件，拉动滚动条时背景不动*/
+				/*背景也可以一行多个属性：background:red url(1.jpg) no-repeat center;*/
+			}
+			
+			a{
+				text-decoration:none;      /*去掉超链接的下划线*/
+				background-color:green;      
+			}
+			
+			h4{
+				width:100px;
+				height:30px;
+				background:url(back.png) 200px 380px;/*根据坐标选取一个图片中的一些区域，减小图片大小，提高效率*/
+			}
+			
+			h5{
+				border-style:solid double;    /*边框线的样式，若只写一个就是4条线都是该样式，写两个就是上下一种，左右一种，写4个，就是按上右下左的顺序*/
+																			/*也可以写border-top-style:......,border-right-style:......设置*/
+				border-width:20px;						/*边框宽度，设置方式与border-style的情况相似*/
+				border-color:red;							/*边框颜色，设置方式与border-style的情况相似*/
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h1>H1号字体</h1>
+		<h2>H2 ziti</h2>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<p>段落</p>
+		<h3>一起写所有属性</h3>
+		<hr/>
+		<a href="#">aaaaa</a>
+		<h4>多个标签放入一个图片</h4>
+		<hr/>
+		<h5>边框属性</h5>
+		<hr/>
+		<ul style="list-style-type:circle">    <!--设置列表前面的标签样式-->
+			<li>无序列表</li>
+			<li style="list-style-type:square">无序列表</li>
+			<li style="list-style-image:url(dot2.gif)">无序列表</li>
+		</ul>
+		<ol style="list-style-type:upper-alpha">
+			<li>有序列表</li>
+			<li>有序列表</li>
+			<li>有序列表</li>
+		</ol>
+		<ol style="list-style-type:lower-alpha">
+			<li>有序列表</li>
+			<li>有序列表</li>
+			<li>有序列表</li>
+		</ol>
+		<ol style="list-style-type:upper-roman">
+			<li>有序列表</li>
+			<li>有序列表</li>
+			<li>有序列表</li>
+		</ol>
+		<ol style="list-style-type:lower-roman">
+			<li>有序列表</li>
+			<li>有序列表</li>
+			<li>有序列表</li>
+		</ol>
+	</body>
+</html>

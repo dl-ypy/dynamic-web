@@ -1,0 +1,159 @@
+
+<html>
+        <head>
+	        <title>表单的应用</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	</head>
+
+	<body>
+		<script>
+			function setValue()
+			{
+				var label = document.getElementById("label");
+				var textbox = label.control;
+				textbox.value = "010010";
+			}
+			
+			function AD()
+			{
+				var control = document.forms[0]['text'];
+				var Direction = control.selectionDirection;
+				alert(Direction);
+			}
+		</script>
+		
+	  <table border="1" width="500" align="center">
+			<form name="frm" action="管理页面.html" method="post" target="_blank" title="这是表单">
+			<!--action的内容是要提交到的URL, 但下面的内容必须写name,method属性默认为get,写成post安全性高，密码不会显示在地址栏中，提交内容有中文是必须是post，否则会乱码-->
+		        <caption>表单的应用</caption>
+
+			<tr>
+				<th>文本域</th>
+				<td>
+          <input type="text" name="name" size="25" maxlength="10" value="" placeholder="请输入用户名">
+					<!--size是文本框长度，maxlength是能输入的最大字数，value是使文本框中有默认内容，placeholder是在文本框中有默认的提示信息，还有个readonly是只读-->
+
+				</td>
+		        </tr>
+
+			<tr>
+				<th>密码域</th>
+				<td>
+                                        <input type="password" name="pass" size="25">
+				</td>
+		        </tr>
+
+			<tr>
+				<th>复选框</th>
+				<td>
+				        <input type="checkbox" name="del[]"> 玩游戏
+					<input type="checkbox" name="del[]"> 看电影
+					<input type="checkbox" checked name="del[]"> 打篮球 <!--checked表示默认选中-->
+				</td>
+		        </tr>
+
+			<tr>
+				<th>单选框</th>
+				<td>
+				        <input type="radio" name="sex" checked> 男
+					<input type="radio" name="sex"> 女
+					<input type="radio" name="sex"> 保密
+					<!--单选框一组中的name必须相同才能选-->
+				</td>
+		        </tr>
+
+			<input type="hidden" name="id" value="10000">
+			<!--隐藏框-->
+
+			<tr>
+				<th>上传文件</th>
+				<td>
+                                        <input type="file" name="picture">
+					<!--method必须是poss-->
+				</td>
+			</tr>
+
+			<tr>
+				<th>下拉列表</th>  <!--当单选框中内容多时，就得用下拉列表模拟-->
+				<td>
+                                        <select name="gn">
+						<option>--请选择--</option>
+						<option value="0">1111111111</option> <!--有value就提交value的值，没有就提交选择的内容-->
+						<option selected>2222222222</option> <!--selected是默认选中的-->
+						<option>3333333333</option>
+						<option>4444444444</option>
+					</select>
+
+				</td>
+			</tr>
+
+			<tr>
+				<th>列表</th>
+				<td>
+                                        <select name="gn1" size="5">
+						<option>--请选择--</option>
+						<option value="0">1111111111</option>
+						<option>2222222222</option>
+						<option>3333333333</option>
+						<option>4444444444</option>
+						<option>5555555555</option>
+					</select>
+
+				</td>
+			</tr>
+
+			<tr>
+				<th>多选列表</th>
+			        <td>
+                                        <select name="gn2" size="5" multiple>
+						<option>--请选择--</option>
+						<option value="0">1111111111</option>
+						<option>2222222222</option>
+						<option>3333333333</option>
+						<option>4444444444</option>
+						<option>5555555555</option>
+					</select>
+
+				</td>
+			</tr>
+
+			<tr>
+				<th>多行文本域</th>
+			        <td>
+					<textarea cols="40" rows="6" name="message">在这里输入你的信息</textarea>
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" name="sub">
+					<input type="reset">
+					<!--上面两个按键不需要自己写程序功能-->
+					<input type="button" value="清空" onclick="document.frm.username.vajue=''">
+					    <!--普通按钮需要配合jsp语句才能实现功能-->
+					<input type="image" src="图片地址">
+				</td>
+			</tr>
+			
+			<!--设置默认值的按键-->
+			<label id="label">
+						邮编：
+						<input id="txt_zip" maxlength="6">
+						<small>请输入六位数字</small>
+					</label>
+					<input type="button" value="设置默认值" onclick="setValue()">
+			
+		</form>
+		</table>
+		
+		<!--pattern使得提交的内容必须符合规定的格式才能提交成功-->
+		<form action="1.html">
+			<input type="text" pattern="[A-Z]{3}" name="part">
+			<input type="submit" value="提交"><br></>
+			
+			<!--能够读取用户的操作，但这里实现不了？？？？？？？？？？-->
+			<input type="text" name="text">
+			<input type="button" value="点击我" onclick="AD()">
+		</form>
+	</body>
+</html>

@@ -1,0 +1,8 @@
+/*直接写css代码就行*/
+p {
+	color:green;
+	font-size:3cm;
+	border:2px solid yellow;
+	background-color:red;
+	text-align:center;
+}

@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>window对象</title>
+	</head>
+	
+	<body>
+	<button id="btn" onclick="btnClick()">打开</button><br/>
+	<button id="btn" onclick="btnClick2()">关闭</button><br/>
+		
+		<script>
+			document.write("宽度："+window.innerWidth+"，高度："+window.innerHeight+"<br>");
+			function btnClick()//打开一个新的网页
+			{
+				window.open("../事件.html","windowname","height=200,width=200,top=100,left=100");//后面设置的页面高，宽，距上，距左等在遨游不能实现
+			}
+			
+			function btnClick2()//关闭网页
+			{
+				window.close();
+			}
+		</script>
+	</body>
+</html>

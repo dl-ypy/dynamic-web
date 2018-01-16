@@ -1,0 +1,37 @@
+* {
+	margin:0px;
+	padding:0px;
+}
+/*上面必须写,用于修复一些浏览器的bug*/
+
+#main {
+	width: 960px;
+	margin: 0 auto;
+}
+
+#top {
+	height: 14px;
+	line-height: 14px;
+}
+
+#top a {
+	text-decoration: none;
+}
+
+#top #top_left {
+	float: left;
+}
+
+#top #top_right {
+	float: right;
+	background: url(../img/buycar.jpg) no-repeat;
+}
+
+#top_right ul {
+	padding-left: 18px;
+}
+
+#top_right ul li{
+	list-style: none;
+	float: left;
+}

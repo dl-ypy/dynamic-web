@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>jQuery遍历</title>
+		<script src="jquery-3.1.0.min.js"></script>
+		<script src="jQuery遍历.js"></script>
+		<style>
+			#div5 *{
+				display:block;
+				border:3px solid gray;
+				color:gray;
+				padding:5px;
+				margin:5px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<!--向下遍历，从父级找子级-->
+		<div id="div1">div1
+			<div id="div2">div2
+				<p id="p1">
+					<a href="#" id="a1">
+						向下遍历
+					</a>
+				</p>
+			</div>
+		</div>
+		<hr/>
+		
+		<!--向上遍历，从子级找父级-->
+		<div id="div3">div3
+			<div id="div4">div4
+				<p id="p2">
+					<a href="#" id="a2">
+						向上遍历
+					</a>
+				</p>
+			</div>
+		</div>
+		<hr/>
+		
+		<!--同级遍历-->
+		<div id="div5">
+			<h1>h1</h1>
+			<h2>h2</h2>
+			<h3>h3</h3>
+			<h4>h4</h4>
+			<h5>h5</h5>
+			<h6>h6</h6>
+		</div>
+		<hr/>
+		
+		<!--过滤-->
+		<div id="div6"><p class="pclass">div1</p></div>
+		<div id="div6"><p class="pclass">div2</p></div>
+		<div id="div6"><p class="pclass">div3</p></div>
+		<div id="div6"><a>div4</a></div>
+	</body>
+</html>

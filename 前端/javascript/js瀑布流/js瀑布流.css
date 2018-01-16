@@ -1,0 +1,21 @@
+body{
+	margin:0px;
+	padding:0px;
+}
+#container{
+	position:relative;/*位置是相对的*/
+}
+.box{
+	padding:5px;/*盒子和盒子之间的边距*/
+	float:left;
+}
+.box_img{
+	padding:5px;/*图片与盒子之间的边距*/
+	border:1px solid red;
+	box-shadow:0 0 5px blue;/*阴影*/
+	border-radius:5px;/*圆角的*/
+}
+.box_img img{
+	width:150px;
+	height:auto;/*高度自适应*/
+}

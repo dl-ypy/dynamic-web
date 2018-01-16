@@ -1,0 +1,64 @@
+<!--时间：2016年7月31日08:54:32-->
+<html>
+	<head>
+		<title>DOM事件处理</title>
+		
+	</head>
+	
+	<body>
+		<button id="hbtn" onclick="hsj()">HTML事件处理按钮</button><br/>   <!--缺点：要修改时就得修改多处-->
+		<button id="zbtn">DOM0级事件处理按钮</button><br/>       <!--缺点：多个事件时，最后一个事件会覆盖掉前面的事件-->
+		<button id="tbtn">DOM2级事件处理按钮</button><br/>           <!--这句要在上面-->
+		<button id="jbtn">使浏览器兼容的事件处理按钮</button>
+		<script>
+			var n = document.getElementById("zbtn");
+			n.onclick = function (){alert("DOM0级事件处理程序1")};
+			n.onclick = function (){alert("DOM0级事件处理程序2")};
+			n.onclick = function (){alert("DOM0级事件处理程序3")};
+			//n.onclick = null;   可以清除事件
+			
+			var x = document.getElementById("tbtn");
+			x.addEventListener("click",hello);       //添加事件    句柄
+			x.addEventListener("click",world);       //多个事件能够同时执行
+			x.addEventListener("click",world1);
+			
+			var m = document.getElementById("jbtn");
+			if (m.addEventListener)
+			{
+				m.addEventListener("click",jr);
+			}
+			else if(m.attachEvent)     //兼容IE8以下的版本
+			{
+				m.attachEvent("onclick",jr);
+			}
+			else
+			{
+				m.onclick = jr();        //不兼容2级的要兼容0级
+			}
+			
+			function hsj()
+			{
+				alert("这是html事件处理");
+			}
+			
+			function hello()
+			{
+				alert("DOM2级事件处理程序1");
+			}
+			function world()
+			{
+				alert("DOM2级事件处理程序2");
+			}
+			function world1()
+			{
+				alert("DOM2级事件处理程序3");
+			}
+			tbtn.removeEventListener("click",world);//移除第二个DOM2级事件
+			
+			function jr()
+			{
+				alert("使浏览器兼容");
+			}
+		</script>
+	</body>
+</html>

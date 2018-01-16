@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.configuration.xml.reload" value="true"></constant>  <!-- 修改xml文件后自动重启 -->
+	<constant name="struts.multipart.maxSize" value="209715200"></constant>   <!-- 设置上传文件的总大小为200M -->
+	<package name="file" extends="struts-default" namespace="/file" strict-method-invocation="false">
+		<action name="fileupload" class="com.ypy.action.FileAction" method="upload">
+			<interceptor-ref name="fileUpload">  <!-- 配置默认的文件上传拦截器 -->
+				<param name="maximumSize">5242880</param>   <!-- 配置单个文件的最大大小 -->
+				<param name="allowedExtensions">.jpg</param>  <!-- 配置允许上传文件的后缀名 -->
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/success.jsp</result>
+			<result name="input">/upload.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.configuration.xml.reload" value="true"></constant>  <!-- 修改xml文件后自动重启 -->
+	<constant name="struts.custom.i18n.resources" value="zbmessage"></constant>   <!-- 配置i18n国际化 -->
+	<package name="download" extends="struts-default" namespace="/download" strict-method-invocation="false">
+		<action name="filedownload" class="com.ypy.action.DownloadAction" method="download">
+			<result name="download" type="stream">  <!-- 以流的形式 -->
+				<param name="contentType">appliction/octet-stream;charset=ISO8859-1</param>   <!-- 允许下载所有类型的文件 -->
+				<param name="inputName">inputStream</param>   <!-- 设定文件下载的路口 -->
+				<param name="contentDisposition">attachment;filename=${fileName}</param>  <!-- 设定文件下载的窗口,attachment表示以窗口的形式打开 -->
+			</result>
+		</action>
+	</package>
+</struts>

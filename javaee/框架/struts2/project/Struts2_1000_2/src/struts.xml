@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <!-- <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="index">
+            <result type="redirectAction">
+                <param name="actionName">HelloWorld</param>
+                <param name="namespace">/example</param>
+            </result>
+        </action>
+    </package>-->
+	<constant name="struts.configuration.xml.reload" value="true"/>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" /><!-- 只有写上这个才能使用!动态方法调用 -->
+    <package name="user" namespace="/user" extends="struts-default">
+        <action name="user" class="com.Struts2_0110.user.UserAction"><!-- 先访问java文件，因为返回是SUCCESS，所以执行下面的jsp文件，访问的时候输入http://localhost:8080/Struts2_0110/user/user!add,这样的好处是不用每个方法都写一个action -->
+            <result>
+                /user_add_success.jsp
+            </result>
+        </action>
+    </package>
+    
+
+    
+
+    <!-- Add packages here -->
+
+</struts>

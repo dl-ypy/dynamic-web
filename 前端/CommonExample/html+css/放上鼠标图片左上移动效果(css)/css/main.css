@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+
+#main{
+}
+
+#main #picture_font span{
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#main #picture_well{
+	margin-top: 90px;
+	margin-left: 270px;
+}
+
+#main #first{
+	float: left;
+}
+
+#main #first #picture{
+ 	background: #FFFFFF;
+    padding: 4px;
+    border: 1px solid #ddd;
+    margin: 5px;
+    float: left;
+}
+
+#main #picture:hover{
+	/*生成相对定位的元素，相对于其正常位置进行定位。*/
+	position:relative;
+	top: 1px;
+	left: 1px;
+}
+
+#main #second{
+	float: left;
+}
+
+#main #second #picture{
+ 	background: #FFFFFF;
+    padding: 4px;
+    border: 1px solid #ddd;
+    margin: 5px;
+    float: left;
+}
+
+/*#main #second #picture:hover{
+	/*生成相对定位的元素，相对于其正常位置进行定位。*/
+	position:relative;
+	top: 1px;
+	left: 1px;
+}*/

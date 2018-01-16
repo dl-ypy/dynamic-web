@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			#div {
+				width: 260px;
+				height: 200px;
+				margin: 0px auto;
+			}
+			
+			#div1 {
+				width: 260px;
+				height: 20px;
+			}
+			
+			#div2 {
+				width: 260px;
+				height: 150px;
+				background: url(img/1.jpg);
+			}
+			
+			li {
+				float: left;
+				list-style: none;
+				margin-right: 5px;
+			}
+			
+			#li1 {
+				background-color: #F94A14;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div">
+			<div id="div1">
+				<ul>
+					<li id="li1"><a href="#" onmouseover="clickfirst(1)">选项卡1</a></li>
+					<li id="li2"><a href="#" onmouseover="clickfirst(2)">选项卡2</a></li>
+					<li id="li3"><a href="#" onmouseover="clickfirst(3)">选项卡3</a></li>
+					<li id="li4"><a href="#" onmouseover="clickfirst(4)">选项卡4</a></li>
+				</ul> 
+			</div>
+			<div id="div2"></div>
+		</div>
+		<script>
+			var v = document.getElementById('div2');
+			function clickfirst(num) {
+				v.style.backgroundImage="url(img/"+num+".jpg)";
+				for (var i=1; i<5; i++) {
+					var li = document.getElementById('li'+i);
+					if (i === num) {
+						li.style.backgroundColor="#F94A14";
+					} else {
+						li.style.backgroundColor="white";
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

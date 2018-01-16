@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动态添加元素</title>
+	</head>
+	<body>
+		<table id="mytab" border="1px" cellspacing="0">
+			<tr>
+				<th>编号</th>
+				<th>姓名</th>
+				<th>操作</th>
+			</tr>
+		</table>
+		<form>
+			姓名：<input id="input" type="text" name="name"/>
+			<input type="button" value="添加" onclick="add()"/>
+		</form>
+		<script>
+			function $(id) {
+				return document.getElementById(id);
+			}
+			
+			var index = 1;
+			function add() {
+				var name = $('input').value;
+				var td1 = document.createElement('td');
+				td1.innerHTML=index;
+				var td2 = document.createElement('td');
+				td2.innerHTML=name;
+				var td3 = document.createElement('td');
+				td3.innerHTML="<input type='button' value='删除' onclick='remove(this.parentNode.parentNode)'/>";
+				var tr = document.createElement('tr');
+				tr.appendChild(td1);
+				tr.appendChild(td2);
+				tr.appendChild(td3);
+				$('mytab').appendChild(tr);
+				index++;
+			}
+			
+			function remove(node) {
+				console.log(node);
+				$('mytab').removeChild(node);
+			}
+			
+		</script>
+	</body>
+</html>

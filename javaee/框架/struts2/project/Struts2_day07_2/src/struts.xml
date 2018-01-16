@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.configuration.xml.reload" value="true"></constant>  <!-- 修改xml文件后自动重启 -->
+	<package name="login" extends="struts-default" namespace="/login" strict-method-invocation="false">
+		<interceptors>
+			<interceptor name="userIntercprt" class="com.ypy.interceptor.UserInterceptor">
+				<param name="includeMethods">save</param>   <!-- 指定要拦截的方法，如果是excludeMethods，则是指定不拦截的方法 -->
+			</interceptor>
+		</interceptors>
+		<action name="user_*" class="com.ypy.action.UserAction" method="{1}">
+			<interceptor-ref name="userIntercprt"></interceptor-ref>    
+			<result name="success">/success.jsp</result>
+		</action>
+		<action name="login_login" class="com.ypy.action.LoginAction" method="login">
+			<result name="success">/success.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+	</package>
+</struts>

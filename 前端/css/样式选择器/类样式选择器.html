@@ -1,0 +1,50 @@
+<html>
+        <head>
+	        <title>类样式选择器</title>
+		<style>
+                        
+			p {
+				background-color:yellow;
+			}
+
+                        p.cla1{
+				color:red;
+				font-size:3cm;
+			}
+
+			p.cla2{
+				color:green;
+				font-size:2cm;
+			}
+
+			p.cla3{
+				color:blue;
+				font-size:1cm;
+			}
+
+			.cla4{
+				color:red;
+				font-size:5cm;
+			}
+
+			.one{
+				background-color:#ff00ff;
+			}
+
+			.two{
+				border:5cm;
+			}
+
+		
+                </style>
+	</head>
+
+	<body>
+	        <p class="cla1">aaaaaaaaaaa</p><!--根据p标签的class属性定义的名字，对不同段落进行样式操作-->
+		<p class="cla2">aaaaaaaaaaa</p>
+		<p class="cla3">aaaaaaaaaaa</p>
+		<p class="cla4">aaaaaaaaaaa</p>
+		<h1 class="cla4">hhhhhhhhhhhh</h1><!--上面的.cla4表示对所有标签的cla4都进行该样式操作-->
+		<p class="cla1 one two">mmmmmmmmmm</p><!--同一个元素可使用多个类，类名之间用空格分开-->
+	</body>
+</html>

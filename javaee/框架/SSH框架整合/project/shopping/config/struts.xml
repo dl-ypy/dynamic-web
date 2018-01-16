@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.configuration.xml.reload" value="true"/>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<!-- 
+	        注意：添加jar包的时候要刷新tomcat中项目
+		Struts 与Spring的整合作用: Spring来管理Action,从而实现Action与Service解耦
+		1: 添加整合jar包: 功能: 替换默认创建Action的工厂类（struts2-spring-plugin-2.3.4.1.jar）
+		 StrutsSpringObjectFactory此类创建Action是从spring容器中
+		2: 添加监听器(Spring-web.jar) 监听器用来加载Spring配置文件,并且把Spring配置文件存储到application内置对象中
+		   默认会在 WEB-INF/applicationContext.xml 如果要改变位置则配置参数
+		3: 修改action中class属性,与Spring中配置的action id 相同
+	 -->
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="*_Action" class="testAction" method="{1}"><!-- 直接通过action的属性也能接收(注意：调的是方法，属性名不同也可以，只要方法中set,get后面的名字和参数名相同就行)，不用request.getParameter -->
+            <result name="success">
+                /success.jsp
+            </result>
+        </action>
+    </package>
+</struts>    

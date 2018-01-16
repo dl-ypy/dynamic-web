@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>JavaScript小数的转换</title>
+	</head>
+	<body>
+		<script>
+			var n = 123456.789;
+			document.write(n.toFixed(0)+"<br />");//保留0位小数
+			document.write(n.toFixed(5)+"<br />");//保留5位小数,超出位数补0
+			document.write(n.toExponential(1)+"<br />");//指数计数法保留一位小数
+			document.write(n.toPrecision(4)+"<br />");//指定一共转换为几位数，如果指定数字小于整数位，则转换为指数
+			document.write(n.toPrecision(7)+"<br />");
+			document.write(n.toPrecision(10)+"<br />");
+		</script>
+	</body>
+</html>

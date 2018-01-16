@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<title>div+css网页标准化布局</title>
+		<style>
+			body{
+				margin:0px;                  
+			}
+			#one{
+				float:left;           /*漂浮后就会脱离文档流，自成一块文档流，位置就能随意摆放,就会覆盖下面不是没有脱离文档流的区域*/
+				width:200px;
+				height:200px;
+				background-color:yellow;
+			}
+			#two{
+				float:left;
+				width:200px;
+				height:200px;
+				background-color:red;
+			}
+			#three{
+				float:left;
+				width:200px;
+				height:200px;
+				background-color:green;
+			}
+			
+			#a{
+				float:left;
+				width:200px;
+				height:200px;
+				background-color:green;
+				clear:left;                   /*清除浮动块左边，使其左边不挨着浮动块*/
+			}
+			#b{
+				float:left;
+				width:200px;
+				height:200px;
+				background-color:pink;
+			}
+			.clear{													/*单独做一个浮动块，使其左右两边都不挨着浮动块，相当于换行*/
+				clear:both;
+			}
+			#c{
+				float:left;
+				width:200px;
+				height:200px;
+				background-color:blue;
+			}
+		</style>	
+	</head>
+	
+	<body>
+		<div id="one">
+			
+		</div>
+		<div id="two">
+			
+		</div>
+		<div id="three">
+			
+		</div>
+		<hr/>
+		<div id="a">
+			
+		</div>
+		<div id="b">
+			
+		</div>
+		<div class="clear">
+			
+		</div>
+		<div id="c">
+			
+		</div>
+	</body>
+</html>

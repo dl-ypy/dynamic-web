@@ -1,0 +1,16 @@
+div {
+	width:100px;
+	height:100px;
+	background:yellow;
+	transition:width 2s,height 2s,transform 2s;         /*宽度，高度，动画执行时间都为两秒*/
+	-webkit-transition:width 2s,height 2s,-webkit-transform 2s;
+	transition-delay:1s;                                /*鼠标放上后延迟1秒再执行动画*/
+	-webkit-transition-delay:1s;
+}
+
+div:hover{
+	width:200px;
+	height:200px;
+	transform:rotate(360deg);
+	-webkit-transform:rotate(360deg);
+}

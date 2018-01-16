@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<struts>
+	<action name="user_add" class="com.ypy.mystruts.action.UserAction" method="add">
+		<result name="success" type="1">/success.jsp</result>
+		<result name="fail" type="2">/fail.jsp</result>
+	</action>
+	<action name="user_delete" class="com.ypy.mystruts.action.UserAction" method="delete">
+		<result name="success" type="1">/success.jsp</result>
+		<result name="fail" type="2">/fail.jsp</result>
+	</action>
+	<action name="user_update" class="com.ypy.mystruts.action.UserAction" method="update">
+		<result name="success" type="1">/success.jsp</result>
+		<result name="fail" type="2">/fail.jsp</result>
+	</action>
+	<action name="user_query" class="com.ypy.mystruts.action.UserAction" method="query">
+		<result name="success" type="1">/success.jsp</result>
+		<result name="fail" type="2">/fail.jsp</result>
+	</action>
+</struts>

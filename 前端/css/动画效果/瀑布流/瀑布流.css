@@ -1,0 +1,14 @@
+.images{
+	column-width:250px;
+	-webkit-column-width:250px;
+	column-gap:5px;
+}
+
+.images div{
+	width:250px;
+	margin:5px 0;
+}
+
+.images p{
+	text-align:center;
+}

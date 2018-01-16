@@ -1,0 +1,66 @@
+<html>
+        <head><title>表格标签</title></head>
+
+	<body>
+	        <center><h1>我的表格</h1></center>
+	        <!--    边框    表格宽        表格位置    表格与表格距离   内容与表格距离    表格背景颜色      线的颜色-->
+	        <table border=1 width="500" align="leftr" cellspacing="0" cellpadding="10" bgcolor="#cccccc" bordercolor="red">
+			<caption><h1>我的表格</h1></caption> <!--次标签能使标题随表格移动而移动-->
+			<tr> <!--第一行，行标签必须在table标签里面，列标签必须在行标签里面-->
+			        <th>编号</th>
+			        <th>姓名</th>
+			        <th>年龄</th>
+			        <th>性别</th>
+			</tr>
+			<!--   文字居中       背景颜色蓝色   文字靠顶    高度为50-->
+			<tr align="center" bgcolor="blue" valign="top" height="50"> 
+			        <td>1</td>
+			        <td>zhangsan</td>
+			        <td>30</td>
+			        <td>男</td>
+			</tr>
+			<tr>
+			        <td>1</td>
+			        <td>zhangsan</td>
+			        <td>30</td>
+			        <td>男</td>
+			</tr>
+			<tr>
+			        <td>1</td>
+			        <td>zhangsan</td>
+			        <td>30</td>
+			        <td>男</td>
+			</tr>
+			<tr>
+			        <td>1</td>
+			        <td>zhangsan</td>
+			        <td>30</td>
+			        <td>男</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td colspan="3" rowspan="3">  <!--该字段占3行，3列，为保证表格一致，要删除一些内容-->
+					<table border=1 width="300" align="leftr" cellspacing="0" cellpadding="0" bgcolor="#cccccc" bordercolor="red">
+						<tr>
+							<td>2</td>
+							<td>eg</td>        <!--这是表格里面嵌套表格，可以无限循环-->
+							<td>21</td>
+							<td>女</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>eg</td>
+							<td>21</td>
+							<td>女</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>eg</td>
+							<td>21</td>
+							<td>女</td>
+						</tr>
+					</table>
+			</tr>
+		</table>
+	</body>
+</html>

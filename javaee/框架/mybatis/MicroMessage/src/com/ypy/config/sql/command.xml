@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+       Copyright 2009-2016 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Command">
+
+  <resultMap type="com.ypy.bean.Command" id="Command">
+      
+    <id column="ID" jdbcType="INTEGER" property="id"/>
+    <result column="name" jdbcType="VARCHAR" property="name"/>
+    <!-- Command类中的集合属性，要引用另一个xml配置文件中的内容 -->
+    <collection property="list" resultMap="Command_Content.Content"/>
+  </resultMap>
+  
+  <select id="selectCommand" parameterType="com.ypy.bean.Command" resultMap="Command">
+      <!-- 多表查询语句 ，这里必须对两个id的其中一个起别名，因为上面的column中要写别名，
+                          如果写id,系统不知道是哪个表中的id，如果写a.id或b.id也会错误，因为查询时，打印出来的是没有前缀的-->
+    select a.id ID,a.name,b.content_id,b.content from command a left join command_content b
+    on a.id = b.command_id where 1=1
+    
+    <if test="name!=null and !&quot;&quot;.equals(name.trim())">
+        and a.name=#{name}
+    </if>
+  </select>
+  
+</mapper>

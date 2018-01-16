@@ -1,0 +1,108 @@
+<html>
+        <head>
+	        <title>伪元素样式选择器</title>
+		<style>
+                        a:link{
+				color:green;
+				font-size:1cm;
+			}
+			a:hover{
+				color:red;
+				font-size:2cm;
+			}
+			a:active{
+				color:blue;
+				font-size:2cm;
+			}
+			a:visited{
+				color:yellow;
+				font-size:1cm;
+			}
+
+			p:first-letter{
+				color:red;
+				font-size:3cm;
+			}
+			p:first-line{
+				color:yellow;
+				font-size:1cm
+			}
+
+			a.one:link{
+				color:green;
+				font-size:1cm;
+			}
+			a.one:hover{
+				color:red;
+				font-size:2cm;
+			}
+			a.one:active{
+				color:blue;
+				font-size:2cm;
+			}
+			a.one:visited{
+				color:yellow;
+				font-size:1cm;
+			}
+
+			a.two:link{
+				color:blue;
+				font-size:1cm;
+			}
+			a.two:hover{
+				color:red;
+				font-size:2cm;
+			}
+			a.two:active{
+				color:blue;
+				font-size:2cm;
+			}
+			a.two:visited{
+				color:yellow;
+				font-size:1cm;
+			}
+			a.thr:link{
+				color:red;
+				font-size:1cm;
+			}
+			a.thr:hover{
+				color:red;
+				font-size:2cm;
+			}
+			a.thr:active{
+				color:blue;
+				font-size:2cm;
+			}
+			a.thr:visited{
+				color:yellow;
+				font-size:1cm;
+			}
+
+			a.fou:link,a.fou:visited{
+				color:green;
+				font-size:1cm;
+			}
+			a.fou:hover{
+				color:red;
+				font-size:2cm;
+			}
+                </style>
+	</head>
+
+	<body>
+	        <a href="http://www.rrrrr.com">rrrrrr</a><br>
+		<a href="http://www.aaaaa.com">aaaaaa</a><br>
+		<a href="http://www.mmmmm.com">mmmmmm</a><br>
+
+		<p>hhhhhhhhhhhhhhhh<br>
+		   uuuuuuuuuuuuuuuu<br>
+		   iiiiiiiiiiiiiiii<br>
+		</p>
+
+		<a class="one" href="http://www.ppppp.com">ppppp</a><br><!--对三个超链接分别做不同处理，p标签同理-->
+		<a class="two" href="http://www.qqqqq.com">qqqqq</a><br>
+		<a class="thr" href="http://www.nnnnn.com">nnnnn</a><br>
+		<a class="fou" href="http://www.wwwnw.com">wwwnw</a><br><!--通常这么写-->
+
+	</body>
+</html>

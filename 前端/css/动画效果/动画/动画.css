@@ -1,0 +1,24 @@
+div{
+	width:100px;
+	height:100px;
+	background:red;
+	position:relative;         /*相对位置*/
+	animation:anim 5s infinite alternate;         /*动画名字和持续时间以及使得动画能重复*/
+	-webkit-animation:anim 5s infinite alternate; 
+}
+
+@keyframes anim{             /*各个时间段的背景颜色以及相对位置*/
+	0%{background:red; left:0px; top:0px}
+	25%{background:blue; left:200px; top:0px}
+	50%{background:#ccffcc; left:200px; top:200px}
+	75%{background:#00ffff; left:0px; top:200px}
+	100%{background:red; left:0px; top:0px}
+}
+
+@-webkit-keyframes anim{
+	0%{background:red; left:0px; top:0px}
+	25%{background:blue; left:200px; top:0px}
+	50%{background:#ccffcc; left:200px; top:200px}
+	75%{background:#00ffff; left:0px; top:200px}
+	100%{background:red; left:0px; top:0px}
+}

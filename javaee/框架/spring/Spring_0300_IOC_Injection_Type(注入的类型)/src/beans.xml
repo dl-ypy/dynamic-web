@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="u" class="com.ypy.dao.impl.UserDaoImpl"></bean>
+    
+    <!-- setter注入，通过set方法 -->
+    <!-- <bean id="userService" class="com.ypy.service.UserService">
+		<property name="userdao" ref="u"/>
+    </bean> -->
+    
+    <!-- 通过构造方法注入 -->
+    <bean id="userService" class="com.ypy.service.UserService">
+		<constructor-arg>
+		    <ref bean="u"/>
+		</constructor-arg>
+    </bean>
+</beans>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="index">
+            <result type="redirectAction">
+                <param name="actionName">HelloWorld</param>
+                <param name="namespace">/example</param>
+            </result>
+        </action>
+    </package>
+
+    <include file="example.xml"/> -->
+
+    <!-- Add packages here -->
+    
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="r1">
+            <result type="dispatcher">/r1.jsp</result><!-- 默认的result类型,forward跳转（服务器跳转）到一个页面，不能是action -->
+        </action>
+        <action name="r2">
+            <result type="redirect">/r2.jsp</result><!-- 客户端跳转，地址栏显示为具体地址 -->
+        </action>
+        <action name="r3">
+            <result type="chain">r1</result><!-- 跳转到一个action，前面不加"/" -->
+        </action>
+        <action name="r4">
+            <result type="redirectAction">r2</result><!-- 客户端跳转到一个action -->
+        </action>
+    </package>
+
+</struts>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

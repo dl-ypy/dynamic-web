@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="index">
+            <result type="redirectAction">
+                <param name="actionName">HelloWorld</param>
+                <param name="namespace">/example</param>
+            </result>
+        </action>
+    </package>
+
+    <include file="example.xml"/> -->
+
+    <!-- Add packages here -->
+    
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant><!-- 此配置使得能够访问静态的方法 -->
+    <package name="test" namespace="/" extends="struts-default">
+        <interceptors><!-- 定义自己的interceptor -->
+            <interceptor name="my" class="com.ypy.struts2.interceptor.MyInterceptor"></interceptor>
+        </interceptors>
+  		<action name="test" class="com.ypy.struts2.action.TestAction">
+  		    <result>/test.jsp</result>
+  		    <interceptor-ref name="my"></interceptor-ref><!-- 调用了自己的interceptor -->
+  		    <interceptor-ref name="defaultStack"></interceptor-ref><!-- 要加上这个默认的interceptor -->
+  		</action>
+    </package>
+
+</struts>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

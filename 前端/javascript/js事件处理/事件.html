@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function fun1(){
+				alert("您单击了");
+			}
+			function fun2(){
+				alert("您双击了");
+			}
+			function fun3(input,flag){
+				if(flag){
+					input.value="获取焦点";
+				}else{
+					input.value="失去焦点";
+				}
+			}
+			
+			function fun4(){
+				alert(event.keyCode);
+			}
+			function onChange(bg)             //触发事件后弹出对话框显示 "文本框内容改变了！"
+			{
+				alert("文本框内容改变了！");
+			}
+			function onSelect(s)              //触发事件后文本框颜色变为蓝色
+			{
+				s.style.background="blue";
+			}
+			function mgs(s)                   //触发事件后弹出对话框显示 "网页加载完毕！"
+			{
+				alert("网页加载完毕！");
+			}
+			
+		</script>
+	</head>
+	<body onload="mgs(this)">          <!--网页加载完毕触发的事件-->
+		<button name="btclick" value="btclick" onclick="fun1()" >单击</button>
+		<a href="JavaScript:void(0)" onclick ="alert('单击')" >单击</a>
+		
+		<button name="btdclick" value="btdclick" ondblclick="fun2()">双击</button>
+		<br />
+		<input type="text" id="input1" value="焦点事件" onfocus="fun3(this,true)"/>
+		<input type="text" id="input2" value="焦点事件" onblur="fun3(this,false)"/>
+		<br />
+		<br />
+		<br />
+		<input type="text" onkeyup="fun4()" /><br />
+		<input type="text" onkeydown="fun4()" /><br />
+		<input type="text" onkeypress="fun4()" />
+		<br />
+		<br />
+		<br />
+		<div style="width: 300px; height: 300px; border: 1px solid red; float: left;" 
+			onmouseout="this.innerHTML='onmouseout'" 
+			onmouseover="this.style.background='#'+Math.round(Math.random()*10)+Math.round(Math.random()*10)+Math.round(Math.random()*10)" ></div>
+			
+		<div style="width: 300px; height: 300px; border: 1px solid red;float: left;" 
+			onmousedown="this.innerHTML='onmousedown'" 
+			onmouseup="this.innerHTML='onmouseup'"></div>
+		<div style="width: 300px; height: 300px; border: 1px solid red;float: left;" 
+			onmousemove="this.style.background='#'+parseInt(Math.random()*10)+parseInt(Math.random()*10)+parseInt(Math.random()*10)" ></div>
+		<hr/>
+		<form>
+			<input type="text" onchange="onChange(this)"/><br>        <!--当文本框的内容改变后触发此事件-->
+			<input type="text" onselect="onSelect(this)"/>              <!--当选中文本框中的信息时触发的事件-->
+		</form>
+		
+	</body>
+</html>

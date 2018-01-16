@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>计时器</title>
+	</head>
+	
+	<body>
+		<p id="pid"></p>
+		<button onclick="startTime()">开始</button><br/>
+		<button onclick="stopTime()">暂停</button>
+		
+		<script>
+			var mytime;//全局变量
+			function startTime()
+			{
+				mytime = setInterval(function(){
+					getTime();
+				},1000);
+			}
+			
+			function getTime()
+			{
+				var d = new Date();
+				var t = d.toLocaleTimeString();//转换成字符串
+				document.getElementById("pid").innerHTML=t;
+			}
+			
+			function stopTime()
+			{
+				clearInterval(mytime);   //暂停时间
+			}
+		</script>
+	</body>
+</html>

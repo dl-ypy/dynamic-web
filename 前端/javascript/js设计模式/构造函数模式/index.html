@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>构造函数模式</title>
+    <script>
+        function zaoMen(huaWen){//构造函数
+            var _huaWen = "普通";
+            if (huaWen){
+                _huaWen = huaWen;
+            }
+            this.suo = "普通";
+            this.huaWen = _huaWen;
+            this.create = function(){
+                return "【锁头】"+this.suo+"【花纹】"+this.huaWen;
+            }
+        }
+        var xiaozhang = new zaoMen();
+        alert("xiaozhang"+xiaozhang.create());
+
+        var xiaoli = new zaoMen("绚丽");
+        alert("xiaoli"+xiaoli.create());
+    </script>
+</head>
+<body>
+
+</body>
+</html>

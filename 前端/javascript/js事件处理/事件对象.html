@@ -1,0 +1,35 @@
+<!--时间：2016年8月1日09:07:03-->
+<html>
+	<head>
+		<title>事件对象</title>
+	</head>
+	
+	<body>
+		<div id="div">
+			<button id="btn">按钮</button>
+			<button id="btn1">按钮</button>
+			<a href="http://www.baidu.com" id="aid">链接</a>
+		</div>
+		<script>
+			document.getElementById("btn").addEventListener("mouseover",showType);  //鼠标放上去触发事件
+			document.getElementById("btn1").addEventListener("click",showTarget);
+			document.getElementById("div").addEventListener("click",showType);    //事件冒泡
+			document.getElementById("aid").addEventListener("click",showA);
+			
+			function showType(event)
+			{
+				alert(event.type);   //显示触发事件的操作
+			}
+			function showTarget(event)
+			{
+				alert(event.target);   //获取事件目标
+			}
+			
+			function showA(event)
+			{
+				event.stopPropagation();//阻止事件冒泡
+				event.preventDefault();//阻止事件默认行为，这里是超链接，所以阻止跳转
+			}
+		</script>
+	</body>
+</html>

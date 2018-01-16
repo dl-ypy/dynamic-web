@@ -1,0 +1,72 @@
+HTTP协议
+1.概念
+	基于TCP/IP协议的应用层协议，规定客户端和服务器之间进行通信的协议
+2.基本原则
+	基于请求响应模型。
+	一次请求对应一次响应。
+	请求只能由客户端发出，服务器端被动的等待请求做出响应。
+3.监测HTTP协议
+	httpwatch
+4.http协议详解
+	http请求：
+		一个请求行
+			GET/movie/rqqwl.html HTTP/1.1
+				请求方式共七种：GET,POST,HEAD,OPTIONS,PUT,DELETE,TARCE
+				我们只用GET和POST，
+				GET：请求参数在地址栏，不安全，数据量不超过
+					1kb（4kb）
+				POST:请求参数在底层流传输，安全，无大小限制
+			请求的资源部分的名称
+			当前请求遵循的HTTP协议版本
+		若干请求头
+			Accept:text/html1,image/ --通知服务器当前浏览器可以接受哪些格式的数据
+			Accept-Charset:ISO-8859-1 --浏览器可以接受的字符集编码
+			Accept-Encoding:gzip,compress --浏览器可接受的压缩格式
+			Accept-Language:en-us,zh-cn --浏览器接受的语言环境，和国际化相关的头
+			Host:localhost --需要访问的虚拟主机的名称
+			If-Modified-Since:Tue,11 Jul 2000 13:23:51 GMT --和缓存机制相关的头
+			Referer:http://www.it315.org/index.jsp --这是和防盗链相关的头，对当前资源的访问来自哪个页面的监测
+			User-Agent:Mozilla/4.0(compatible;MSIE 5.5;Windows NT 5.0) --客户端的基本信息
+			Cookie --和cookie相关的头
+			Connection: close/Keep-Alive --是否继续保持连接
+			Date:Tue, 11 Jul 2000 13:23:51 GMT --当前发送请求的时间
+			......
+		一个空行
+		实体内容
+	HTTP响应
+		一个状态行
+			Http/1.1 200 OK
+			当前遵循的协议
+			
+			响应码：
+				就是一个3位数字，取值为100-999，表示服务器对请求的处理结果。
+				200-299表示服务器正确处理了请求
+				300-399表示服务器正确处理了请求，但如果想继续执行，还需要更多额外的信息
+				400-499表示客户端的请求有问题
+				500-599表示服务端发生了问题
+				200表示服务器处理成功
+				302表示请求重定向
+				304、307表示通知浏览器使用之前的缓存的资源
+				404表示客户端访问的资源不存在
+				500表示服务器处理请求出错
+				
+				描述字符
+			若干响应头
+				Location:http://www.it315.org/index.jsp --配合302实现请求重定向
+				Server:apache tomcat --服务器基本信息
+				Content-Encoding:gzip --服务器发送的数据使用的压缩格式
+				Content-Length:80 --服务器发送的数据的大小
+				Content-Language:zh-cn --服务器发送的数据使用的语言环境 国际化相关的头
+				Content-Type:text/html;charset=GB2312 --服务器发送的数据的格式，如果是字符格式的数据，还可以通知服务器发送的数据使用的是什么编码，浏览器会根据这个头指定的编码决定使用哪个编码来打开收到的数据
+				Last-Modified:Tue,11 Jul 200 18:23:51 GMT --和缓存相关的头
+				Refresh:1;url=http://www.tarena.com.cn --定时刷新相关的头，通知浏览器，过几秒后自动访问到哪个页面
+				Content-Disposition:attachment;filename=aaa.zip --通知浏览器以附件的形式打开发送过去的数据，是和文件下载相关的头
+				Set-Cookie:SS=QQ=5Lb_nQ; path=/search --和Cookie相关的头
+				Expires:-1 --通知浏览器是否有缓存
+				Cache-Control: no-cache --通知浏览器是否有缓存
+				Pragma:no-cache --通知浏览器是否有缓存
+				------有功能一样的三个头是历史原因造成的
+				Connection:close/Keep-Alive --是否保持连接
+				Data: Tue, 11 Jul 2000 18:23:51 GMT --响应时的时间
+			一个空行
+			实体内容

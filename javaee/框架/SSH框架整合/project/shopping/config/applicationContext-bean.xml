@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- 用Junit测试时使用 -->
+	<!-- <bean id="date" class="java.util.Date"/> -->
+	
+	<bean id="categoryServiceImpl" class="com.ypy.shopping.service.impl.CategoryServiceImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<!-- 1 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <!-- 加载hibernate配置文件 -->
+        <!-- <property name="configLocation" value="classpath:hibernate.cfg.xml"/> -->  <!-- hibernate4以前版本 -->
+        <property name="dataSource" ref="dataSource"/>   <!-- hibernate4以后版本 -->
+        <!-- 配置hibernate -->
+        <property name="hibernateProperties">
+            <props>  
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>  
+                <prop key='hibernate.hbm2ddl.auto'>update</prop>
+                <prop key="hibernate.show_sql">true</prop>  
+                <prop key="hibernate.format_sql">true</prop>  
+            </props>  
+        </property>
+        <property name="mappingResources">
+            <list>
+                <value>com/ypy/shopping/model/Category.hbm.xml</value>
+            </list>
+        </property>
+    </bean>
+     
+    <!-- 2 -->
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+	    <!-- 需要sessionFactory -->
+	    <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- 3 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+         <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <!-- 6:配置数据库（hibernate4以后版本需要） -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+	    <property name="driverClass" value="${jdbc.driverClassName}"/>
+	    <property name="jdbcUrl" value="${jdbc.url}"/>
+	    <property name="user" value="${jdbc.username}"/>
+	    <property name="password" value="${jdbc.password}"/>
+	</bean>
+	<!-- 引入数据库的具体配置 -->
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+</beans>

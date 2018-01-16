@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>js内置对象_Date</title>
+	</head>
+	
+	<body onload="startTime()"><!--在网页加载完就显示时钟-->
+		<div id="div"></div>
+		<script>
+			var date = new Date(); //new一个日期对象
+			document.write("当前时间："+date+"<br>");
+			document.write("获取到当前年份:"+date.getFullYear()+"<br>");//获取到当前年份
+			document.write("获取从1970年1月1日到现在的毫秒数："+date.getTime()+"<br>");
+			document.write("获取星期："+date.getDay()+"<br>");
+			
+			//时钟实例
+			function startTime()
+			{
+				var today = new Date();
+				var h = today.getHours();//获取小时
+				var m = today.getMinutes();//获取分钟
+				var s = today.getSeconds();//获取秒
+				m = checkTime(m);
+				s = checkTime(s);
+				document.getElementById("div").innerHTML = h+":"+m+":"+s;//向div中插入时钟内容
+				t = setTimeout(function(){    //setTimeout()表示在指定的毫秒数后调用里面的函数或计算方法
+					startTime();
+				}, 1000);
+			}
+			
+			function checkTime(i){
+				if (i<10)
+				{
+					i = "0"+i;
+				}
+				return i;
+			}
+		</script>
+		
+		
+	</body>
+</html>

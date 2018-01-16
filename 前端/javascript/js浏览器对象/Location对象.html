@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>Location对象</title>
+	</head>
+	
+	<body>
+		<button onclick="gethostname()">返回web主机域名</button><br/>
+		<button onclick="getpathname()">返回当前页面的路径和文件名</button><br/>
+		<button onclick="getport()">返回web主机端口</button><br/>
+		<button onclick="getportocol()">返回所使用的web协议</button><br/>
+		<button onclick="gethref()">返回当前页面的URL</button><br/>
+		<button onclick="goassign()">百度</button><br/>
+		
+		<script>
+			function gethostname()
+			{
+				alert(window.location.hostname);//因为这里没有使用任何主机和端口，所以都是空的
+			}
+			function getpathname()
+			{
+				alert(window.location.pathname);
+			}
+			function getport()
+			{
+				alert(window.location.port);
+			}
+			function getportocol()
+			{
+				alert(window.location.portocol);
+			}
+			function gethref()
+			{
+				alert(window.location.href);
+			}
+			function goassign()
+			{
+				location.assign("http://www.baidu.com");
+			}
+		</script>
+	</body>
+</html>

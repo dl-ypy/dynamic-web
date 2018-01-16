@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <bean id="u" class="com.ypy.dao.impl.UserDaoImpl"/>
+        
+    <bean id="userService" class="com.ypy.service.UserService">
+        <property name="userdao" bean="u"/>   <!-- 将userService类中的userdao属性注入到id为u的bean中 -->
+    </bean>
+</beans>

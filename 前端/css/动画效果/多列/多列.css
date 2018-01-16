@@ -1,0 +1,8 @@
+div{
+	column-count:4;             /*分为4列*/
+	-webkit-column-count:4;
+	column-gap:30px;            /*每列的宽度*/
+	-webkit-column-gap:30px;
+	column-rule:5px outset #ff0000;    /*分列条的属性*/
+	-webkit-column-rule:5px outset #ff0000;
+}

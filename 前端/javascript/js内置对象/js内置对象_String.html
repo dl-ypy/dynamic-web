@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>js内置对象_String</title>
+	</head>
+	
+	<body>
+		<script>
+			var str = "Hello World";
+			document.write("字符串长度为："+str.length+"<br>");
+			document.write("字符串是否存在："+str.indexOf("Hello")+"<br>");//输出为0，表示存在，并从第0个开始,不存在则输出-1
+			document.write("匹配字符串是否存在："+str.match("World")+"<br>");//存在将打印出字符串，不存在则返回null
+			document.write("替换内容："+str.replace("World", "ypy")+"<br>");//第二个参数替换第一个参数
+			document.write("转换成大写："+str.toUpperCase()+"<br>");
+			document.write("转换成小写："+str.toLowerCase()+"<br>");
+			var s = str.split(" ");//将字符串转换为数组，并且以空格分开
+			document.write("转换后数组的第二个元素为："+s[1]+"<br>");
+		</script>
+	</body>
+</html>

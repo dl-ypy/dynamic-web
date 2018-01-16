@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>011_meun</title>
+		<script src="jquery-3.1.0.min.js"></script>
+		<script src="jquery-ui.min.js"></script>
+		<script src="011_菜单.js"></script>
+		<link type="text/css" href="jquery-ui.min.css" rel="stylesheet"/>
+		<style>
+			/*#menu{
+				width:200px;
+			}*/
+			.ui-menu:after{/*使得菜单水平*/
+				content:".";
+				display:block;
+				clear:both;
+				visibility:hidden;
+				line-height:0;
+				height:0;
+			}
+			.ui-menu .ui-menu-item{
+				display:inline-block;
+				float:left;
+				margin:0;
+				padding:10;
+				width:auto;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<ul id="menu">
+			<li>
+				<a href="#">java</a>
+				<ul>
+					<li><a href="#">javase</a></li>
+					<li><a href="#">javaee</a></li>
+					<li><a href="#">javame</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">c</a>
+				<ul>
+					<li><a href="#">c语言</a></li>
+					<li><a href="#">c++</a></li>
+					<li><a href="#">c#</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">动态网页开发</a>
+				<ul>
+					<li><a href="#">jsp</a></li>
+					<li><a href="#">php</a></li>
+					<li><a href="#">asp</a></li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,1 @@
+tomcat7在新建servlet时，不需要web.xml,采用注解配置

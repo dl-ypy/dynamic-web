@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<students>
+	<student sid="1">
+		<sname>李四</sname>
+		<sage>22</sage>
+		<ssex>男</ssex>
+	</student>
+</students>

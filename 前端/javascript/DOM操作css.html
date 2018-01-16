@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>DOM操作css</title>
+		<style>
+			div{
+				width:200px;
+				height:200px;
+				background:yellow;
+			}
+		</style>
+		<script>
+			function changecolor()
+			{
+				document.getElementById("div").style.background="blue";      //改变背景颜色
+				document.getElementById("div").style.color="red";            //改变文字颜色
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div id="div">Hello</div>
+		<button onclick="changecolor()">改变</button>
+	</body>
+</html>
